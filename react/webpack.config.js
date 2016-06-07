@@ -3,7 +3,10 @@ var webpack = require('webpack');
 var config = {
   entry: {
     main: './react/src/main.js',
-    comments: './react/src/comments.js'
+    comments: [
+     './react/src/comments.js',
+     './react/src/multitest.js'
+   ]
   },
   output: {
     path: './app/assets/javascripts',
@@ -20,39 +23,7 @@ var config = {
   },
   devtool: 'eval-source-map'
 }
-//
-// var config = module.exports = {
-//   context: __dirname,
-//   entry: {
-//     mainEntry: '../react/entry.js',
-//     index: '../react/src/main.js'
-//   }
-// };
-//
-// module.loaders = [{
-//   test: /\.jsx?$/,
-//   exclude: /node_modules/,
-//   loader: 'babel'
-// }];
-//
-// config.output = {
-//   path: 'app/assets/javascripts',
-//   filename: '[name].js',
-//   publicPath: '/assets'
-// };
-//
-// config.resolve = {
-//   extensions: ['', '.js'],
-//   modulesDirectories: ['node_modules', 'react']
-// };
-//
-// config.plugins = [
-//   // we need this plugin to teach webpack how to find module entry points for bower files,
-//   // as these may not have a package.json file
-//   new webpack.ResolverPlugin([
-//     new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('.bower.json', ['main'])
-//   ]),
-//
+
 //   new webpack.ProvidePlugin({
 //     $: 'jquery',
 //     jQuery: 'jquery'
