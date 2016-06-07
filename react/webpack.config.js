@@ -23,7 +23,6 @@ var config = {
   },
   devtool: 'eval-source-map'
 }
-
 //   new webpack.ProvidePlugin({
 //     $: 'jquery',
 //     jQuery: 'jquery'
