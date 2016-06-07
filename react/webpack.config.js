@@ -3,7 +3,6 @@ var webpack = require('webpack');
 var config = {
   entry: {
     main: './react/src/main.js',
-    reactCore: './react/entry.js',
     comments: './react/src/comments.js'
   },
   output: {
@@ -19,15 +18,6 @@ var config = {
       }
     ]
   },
-  // plugins: [
-  //   new webpack.ProvidePlugin({
-  //     $: 'jquery',
-  //     jQuery: 'jquery'
-  //   })
-  // ],
-  // resolveLoader: {
-  //   root: path.join(__dirname, 'node_modules')
-  // },
   devtool: 'eval-source-map'
 }
 //
