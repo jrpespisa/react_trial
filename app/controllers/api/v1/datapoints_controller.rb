@@ -2,7 +2,7 @@ class Api::V1::DatapointsController < ActionController::Base
 
   def index
     @datapoints = Datapoint.all
-    render json: { datapoints: @datapoints }
+    render json: @datapoints
   end
 
   def create
