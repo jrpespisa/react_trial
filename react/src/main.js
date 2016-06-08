@@ -3,38 +3,56 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 //Category Component
-let metriccat = <select>
-            <option>Water</option>
-            <option>Electricity</option>
-          </select>;
+var MetricCat = React.createClass({
+  render: function() {
+    return (
+      <select>
+          <option>Water</option>
+          <option>Electricity</option>
+      </select>
+    );
+  }
+});
 
-$(function () {
+setInterval(function() {
   ReactDOM.render(
-    metriccat,
+    <MetricCat  />,
     document.getElementById('category')
   );
 });
 
 //Type Component
-let metrictype = <select>
-                    <option>Usage</option>
-                    <option>Meter Reading</option>
-                  </select>;
+var MetricType = React.createClass({
+  render: function() {
+    return (
+      <select>
+          <option>Usage</option>
+          <option>Meter Reading</option>
+      </select>
+    );
+  }
+});
 
-$(function () {
+setInterval(function() {
   ReactDOM.render(
-    metrictype,
+    <MetricType  />,
     document.getElementById('type')
   );
 });
 
 //Input Component
-let inputfield = <input type="text" className="form-control" id="qty" placeholder="100 kWh"/>
-;
 
-$(function () {
+var InputField = React.createClass({
+  render: function() {
+    return (
+      <input type="text" className="form-control" id="qty" placeholder="100 kWh"/>
+    );
+  }
+});
+
+setInterval(function() {
   ReactDOM.render(
-    inputfield,
+    <InputField  />,
     document.getElementById('inputdata')
   );
 });
