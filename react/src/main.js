@@ -37,7 +37,7 @@ var Datapoints = React.createClass({
       )
     })
     return (
-      <table class="table table-striped">
+      <table className="table table-striped">
         <th>Data Type</th>
         <th>Measure Types </th>
         <tbody>
@@ -59,6 +59,20 @@ var Datapoint = React.createClass({
         </td>
       </tr>
     )
+  }
+})
+var DatapointForm = React.createClass({
+  getInitialState: function() {
+    return {datatype: '',measuretype: ''};
+  },
+  handleDatatypeChange: function(e) {
+    this.setState({datatype: e.target.value})
+    this.setState({measuretype: })
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var datatype = this.state.datatype.trim();
+    var measuretype = this.state.measuretype.trim();
   }
 })
 
