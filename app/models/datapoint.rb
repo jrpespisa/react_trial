@@ -1,14 +1,16 @@
 class Datapoint < ActiveRecord::Base
   validates :usage, numericality: true, allow_nil: true
   validates :meter_reading, numericality: true, allow_nil: true
-  after_initialize :data_type
+  after_save :data_type
 
 
   def data_type
     if self.measuretype == "Meter Reading"
-      self.usage = nil
+      new_usage = nil
+      self.update_column(:usage, new_usage)
     elsif self.measuretype == "Usage"
-      self.meter_reading == nil
+      new_meter_reading = nil
+      self.update_column(:meter_reading, new_meter_reading)
     end
   end
 end

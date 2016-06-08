@@ -12,6 +12,16 @@ var newDataForm = function() {
 };
 
 $(document).ready(function() {
+  var request = $.ajax({
+    type: "GET",
+    url: "api/v1/datapoints"
+  });
+  request.done(function(response) {
+    var dataList = response
+  });
+});
+
+$(document).ready(function() {
   $("#datasubmit").click(function(event) {
     event.preventDefault();
     var formInfo = newDataForm()
@@ -34,10 +44,10 @@ $(document).ready(function() {
         if (response.measuretype == "Usage") {
           return response.usage
         } else {
-          return reponse.meter_reading
+          return response.meter_reading
         };
       }
-      var amount = differentiate()
+      var amount = differentiate();
      });
   });
 });
