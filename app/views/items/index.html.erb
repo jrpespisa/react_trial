@@ -1,3 +1,55 @@
 <%= javascript_include_tag 'main' %>
-<h1>Test Item List</h1>
-<div id="app">Insert Here</div>
+<h1>React Example</h1>
+<div class="row col-md-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2>Data Input</h2>
+    </div>
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label>Category</label>
+          <span id="category">
+            <!--Category Component -->
+          </span>
+        </div>
+        <div class="form-group">
+          <label>Type</label>
+          <span id="type">
+            <!--Type Component -->
+          </span>
+        </div>
+        <div class="form-group" id="input">
+          <label for="Amount">Amount</label>
+          <span id="inputdata">
+            <!-- Input Component -->
+          </span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div> <!--End Form Panel -->
+</div> <!-- End Row -->
+<div class="row col-md-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2>Data Table</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <th>Category</th>
+          <th>Type</th>
+          <th>Amount</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Append Category here</td>
+            <td>Append Type Here</td>
+            <td>Append Amount Here</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> <!--End Form Panel -->
+</div> <!-- End Row -->
