@@ -38,7 +38,6 @@ $(document).ready(function() {
         };
       }
       var amount = differentiate()
-      debugger;
      });
   });
 });
