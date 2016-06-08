@@ -4,10 +4,7 @@ import ReactDOM from 'react-dom';
 
 // Datapoints Component
 var Datapoints = React.createClass({
-  getInitialState: function() {
-    return {data: []};
-  },
-  componentDidMount: function() {
+  loadDatapointsFromServer: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -19,6 +16,13 @@ var Datapoints = React.createClass({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadDatapointsFromServer();
+    setInterval(this.loadDatapointsFromServer, 2000);
   },
   render: function() {
     var datapointNodes = this.state.data.map(function(datapoint) {
@@ -33,21 +37,34 @@ var Datapoints = React.createClass({
       )
     })
     return (
-      <div>{datapointNodes}</div>
+      <table class="table table-striped">
+        <th>Data Type</th>
+        <th>Measure Types </th>
+        <tbody>
+          {datapointNodes}
+        </tbody>
+      </table>
     );
   }
 });
 var Datapoint = React.createClass({
   render: function() {
     return (
-      <li>{this.props.datatype}</li>
+      <tr>
+        <td>
+          {this.props.datatype}
+        </td>
+        <td>
+          {this.props.measuretype}
+        </td>
+      </tr>
     )
   }
 })
 
 setInterval(function() {
   ReactDOM.render(
-    <Datapoints url="api/v1/datapoints" />,
+    <Datapoints url="api/v1/datapoints"/>,
     document.getElementById('datapoints')
   );
 },500);
