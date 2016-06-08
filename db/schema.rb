@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607153548) do
-
-  create_table "comments", force: true do |t|
-    t.string  "body"
-    t.integer "item_id"
-  end
+ActiveRecord::Schema.define(version: 20160607194352) do
 
   create_table "datapoints", force: true do |t|
     t.string   "datatype"
@@ -25,11 +20,6 @@ ActiveRecord::Schema.define(version: 20160607153548) do
     t.float    "meter_reading"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "items", force: true do |t|
-    t.string "name"
-    t.string "description"
   end
 
 end

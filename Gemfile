@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 1.2'
 group :development, :test do
   gem 'rspec-rails', '~> 3.4'
   gem 'capybara'
-  gem 'factory_girl'
+  gem "factory_girl_rails", require: false
   gem 'launchy'
   gem 'shoulda'
   gem 'quiet_assets'

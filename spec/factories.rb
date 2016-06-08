@@ -1,11 +1,8 @@
 FactoryGirl.define do
-  factory :comment do
-    body "Test"
-    item_id
-  end
-
-  factory :user do
-    email "johndoe@capaccio.com"
-    password "password"
+  factory :datapoint do
+    datatype "Air"
+    measuretype "Usage"
+    meter_reading nil
+    usage 100.0
   end
 end

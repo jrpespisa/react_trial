@@ -6,11 +6,12 @@ var config = {
     comments: [
      './react/src/comments.js',
      './react/src/multitest.js'
-   ]
+   ],
+    usagedata: "./react/src/datatypeAjax.js"
   },
   output: {
     path: './app/assets/javascripts',
-    filename: '[name].js'
+    filename: '[name].js',
   },
   module: {
     loaders: [
@@ -21,14 +22,11 @@ var config = {
       }
     ]
   },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('common-bundle.js')
+  ],
   devtool: 'eval-source-map'
 }
-//   new webpack.ProvidePlugin({
-//     $: 'jquery',
-//     jQuery: 'jquery'
-//   }),
-//   new webpack.optimize.CommonsChunkPlugin('common-bundle.js')
-// ];
 
 if (process.env.NODE_ENV === 'production') {
   delete config.devtool;

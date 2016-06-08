@@ -17,9 +17,17 @@ class Api::V1::DatapointsController < ActionController::Base
     else
       render json: :nothing, status: :not_found
     end
+  end
 
-    def destroy
-      
-    end
+  def destroy
+    @datapoint = Datapoint.find(params[:id])
+    @datapoint.destroy
+    render json: :nothing
+  end
+
+  private
+
+  def datapoint_params
+    params.require(:datapoint).permit(:datatype, :measuretype, :usage, :meter_reading)
   end
 end
