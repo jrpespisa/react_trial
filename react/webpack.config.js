@@ -2,8 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var config = {
   entry: {
-    main: './react/src/main.js',
-    usagedata: "./react/src/datatypeAjax.js"
+    main: ['./react/src/main.js', "./react/src/datatypeAjax.js"]
   },
   output: {
     path: './app/assets/javascripts',
