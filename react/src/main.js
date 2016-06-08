@@ -2,11 +2,39 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-let testList = <ul onClick ={event => alert('Test')}>This is a test list</ul>;
+//Category Component
+let metriccat = <select>
+            <option>Water</option>
+            <option>Electricity</option>
+          </select>;
 
-$(function() {
+$(function () {
   ReactDOM.render(
-    testList,
-    document.getElementById('app')
+    metriccat,
+    document.getElementById('category')
+  );
+});
+
+//Type Component
+let metrictype = <select>
+                    <option>Usage</option>
+                    <option>Meter Reading</option>
+                  </select>;
+
+$(function () {
+  ReactDOM.render(
+    metrictype,
+    document.getElementById('type')
+  );
+});
+
+//Input Component
+let inputfield = <input type="text" className="form-control" id="qty" placeholder="100 kWh"/>
+;
+
+$(function () {
+  ReactDOM.render(
+    inputfield,
+    document.getElementById('inputdata')
   );
 });

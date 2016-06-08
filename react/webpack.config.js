@@ -3,10 +3,6 @@ var webpack = require('webpack');
 var config = {
   entry: {
     main: './react/src/main.js',
-    comments: [
-     './react/src/comments.js',
-     './react/src/multitest.js'
-   ],
     usagedata: "./react/src/datatypeAjax.js"
   },
   output: {
