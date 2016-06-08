@@ -1,10 +1,5 @@
 class Api::V1::DatapointsController < ActionController::Base
 
-  def index
-    @datapoints = Datapoint.all
-    render json: { datapoints: @datapoints }
-  end
-
   def create
     @datapoint = Datapoint.new(datapoint_params)
     if @datapoint.save
