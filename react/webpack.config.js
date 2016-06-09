@@ -2,7 +2,8 @@ var path = require('path');
 var webpack = require('webpack');
 var config = {
   entry: {
-    main: './react/src/main.js'
+    main: './react/src/main.js',
+    lists: './react/src/lists.js'
   },
   output: {
     path: './app/assets/javascripts',
