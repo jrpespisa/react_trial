@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607194352) do
+ActiveRecord::Schema.define(version: 20160609171619) do
 
   create_table "datapoints", force: true do |t|
     t.string   "datatype"
     t.string   "measuretype"
     t.float    "usage"
     t.float    "meter_reading"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lists", force: true do |t|
+    t.string   "item"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

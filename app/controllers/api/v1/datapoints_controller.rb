@@ -1,5 +1,4 @@
 class Api::V1::DatapointsController < ActionController::Base
- http_basic_authenticate_with name: "name", password: "password"
   def index
     @datapoints = Datapoint.all
     render json: @datapoints

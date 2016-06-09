@@ -5,4 +5,8 @@ FactoryGirl.define do
     meter_reading nil
     usage 100.0
   end
+
+  factory :list do
+    item "Test"
+  end
 end
