@@ -4,55 +4,82 @@ import ReactDOM from 'react-dom';
 
 //Category Component
 var MetricCat = React.createClass({
+  getInitialState() {
+    return {
+      value: ''
+    };
+  },
+
+  handleChange(e) {
+    this.setState({ value: e.target.value});
+  },
+
   render: function() {
     return (
       <select>
-          <option>Water</option>
-          <option>Electricity</option>
+          <option value="nothing">Please select</option>
+          <option value="water">Water</option>
+          <option value="electric">Electricity</option>
       </select>
     );
   }
 });
 
-setInterval(function() {
-  ReactDOM.render(
-    <MetricCat  />,
-    document.getElementById('category')
-  );
-});
-
-//Type Component
 var MetricType = React.createClass({
+  getInitialState() {
+    return {
+      value: ''
+    };
+  },
+
+  handleChange(e) {
+    this.setState({ value: e.target.value});
+  },
+
   render: function() {
     return (
       <select>
-          <option>Usage</option>
-          <option>Meter Reading</option>
+          <option value="nothing">Please select</option>
+          <option value="usage">Usage</option>
+          <option value="meter">Meter Reading</option>
       </select>
     );
   }
 });
 
-setInterval(function() {
-  ReactDOM.render(
-    <MetricType  />,
-    document.getElementById('type')
-  );
-});
-
-//Input Component
-
-var InputField = React.createClass({
+var MetricInput = React.createClass ({
+  getInitialState: function() {
+    return {value: 'Test'};
+  },
+  handleChange: function(event) {
+    this.setState({value: event.target.value});
+  },
   render: function() {
     return (
-      <input type="text" className="form-control" id="qty" placeholder="100 kWh"/>
+      <input
+        type="text"
+        value={this.state.value}
+        onChange={this.handleChange}
+      />
     );
   }
-});
+})
+
+var MetricForm = React.createClass ({
+  render: function(){
+    return (
+      <form>
+          <MetricCat />
+          <MetricType />
+          <MetricInput />
+      </form>
+    );
+  }
+})
 
 setInterval(function() {
   ReactDOM.render(
-    <InputField  />,
-    document.getElementById('inputdata')
+    <MetricForm />,
+    document.getElementById('dataForm')
   );
 });
