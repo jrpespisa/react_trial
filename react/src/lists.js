@@ -22,7 +22,6 @@ var Tasks = React.createClass({
   },
   componentDidMount: function() {
     this.loadTasksFromServer();
-    setInterval(this.loadTasksFromServer, 2000);
   },
   render: function() {
     var taskNodes = this.state.data.map(function(task) {
