@@ -24,13 +24,14 @@ var Tasks = React.createClass({
     this.loadTasksFromServer();
   },
   render: function() {
-    var taskNodes = this.state.data.map(function(task) {
+    var tasksFromServer = this.loadTasksFromServer
+    var taskNodes = this.state.data.map(function(task, i) {
       return (
         <Task
           key = {task.id}
           id = {task.id}
           item= {task.item}
-        />
+          handleDeleteTask={tasksFromServer}/>
       )
     })
     var options = this.state.data.map(function(task){
@@ -46,9 +47,7 @@ var Tasks = React.createClass({
       <ul>
         {taskNodes}
       </ul>
-      <form>
-        <TaskForm url="api/v1/lists" />
-      </form>
+        <TaskForm url="api/v1/lists" onTaskSubmit={this.loadTasksFromServer}/>
       <select>
         {options}
       </select>
@@ -68,6 +67,7 @@ var Task = React.createClass({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
+    this.props.handleDeleteTask();
   },
   render: function() {
     return (
@@ -83,6 +83,7 @@ var TaskForm = React.createClass({
     this.setState({ item: e.target.value })
   },
   handleSubmit: function(e) {
+    var taskcontent = this.state.item.trim();
     e.preventDefault();
     $.ajax({
       type: "POST",
@@ -91,27 +92,28 @@ var TaskForm = React.createClass({
       cache: false,
       data: {
         list: {
-          item: this.state.item.trim()
+          item: taskcontent
         }
       },
       success: function(data) {
-        this.setState({data: data});
+        console.log(data);
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
+    this.props.onTaskSubmit();
     this.setState({item: ''})
   },
   render: function() {
     return (
-      <div>
+      <form className="form-inline" onSubmit={this.handleSubmit}>
         <input
           type='text'
           value={this.state.item}
           onChange={this.onChange} />
-        <button className="btn btn-default" type="submit" onClick={this.handleSubmit}>Add</button>
-      </div>
+        <button className="btn btn-default" type="submit">Add</button>
+      </form>
     )
   }
 })
